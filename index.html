@@ -347,6 +347,17 @@ ul li.no-icon::before {
   </style>
 </head>
 <body>  <header>
+    <h1 class="title-ar"><button class="menu-toggle" onclick="toggleMenu()">☰</button></h1>
+
+
+<div class="nav-links" id="navLinks">
+  <a href="#about">نبذة عنا</a>
+  <a href="#products">منتجاتنا</a>
+  <a href="#gallery">صور الشركة</a>
+  <a href="#why-us">لماذا نحن</a>
+  <a href="#quality">شهادات الجودة</a>
+  <a href="#plan">خطة 2025</a>
+</div>
 
 <div class="header-titles">
   <h1 class="title-ar">شركة الهدي للتصنيع و التوريدات العمومية</h1>
@@ -358,17 +369,7 @@ ul li.no-icon::before {
   <h1 class="title-en">El-Huda Company for Manufacturing and General Supplies</h1>
 </div>
 
-<button class="menu-toggle" onclick="toggleMenu()">☰</button>
 
-
-<div class="nav-links" id="navLinks">
-  <a href="#about">نبذة عنا</a>
-  <a href="#products">منتجاتنا</a>
-  <a href="#gallery">صور الشركة</a>
-  <a href="#why-us">لماذا نحن</a>
-  <a href="#quality">شهادات الجودة</a>
-  <a href="#plan">خطة 2025</a>
-</div>
 
 
 
@@ -513,7 +514,22 @@ ISO 22000 لسلامة الغذاء
       menu.style.display = "flex";
     }
   }
+
+  // إغلاق القائمة عند الضغط خارجها
+  document.addEventListener('click', function(event) {
+    var menu = document.getElementById("navLinks");
+    var button = document.querySelector(".menu-toggle");
+
+    if (
+      menu.style.display === "flex" &&
+      !menu.contains(event.target) &&
+      !button.contains(event.target)
+    ) {
+      menu.style.display = "none";
+    }
+  });
 </script>
+
 
 
 
